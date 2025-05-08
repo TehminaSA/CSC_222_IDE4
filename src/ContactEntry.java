@@ -26,6 +26,12 @@ public class ContactEntry {
             // Phone number input - Students will add exception handling here
             System.out.print("Enter phone number: ");
             String phoneNumber = scanner.nextLine();
+            if (phoneNumber.isEmpty()) {
+                throw new IllegalArgumentException("Error: Phone number cannot be empty.");
+            }
+            if (!isNumeric(phoneNumber)) {
+                throw new IllegalArgumentException("Error: Phone number must be numeric.");
+            }
 
             // Create Contact and display information
             Contact contact = new Contact(name, email, phoneNumber);
